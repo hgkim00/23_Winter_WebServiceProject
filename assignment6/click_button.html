@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			type="text/javascript"
+			src="https://code.jquery.com/jquery-3.2.0.min.js"
+		></script>
+		<title>Document</title>
+		<script>
+			//JQuery
+			$(document).ready(function () {
+				$("#firstButton").on("click", function () {
+					alert("첫 번째 버튼을 클릭했습니다");
+				});
+			});
+			$(document).ready(function () {
+				//id가 btn2인 대상을 선택해서, 이벤트 적용
+				$("#btn2").click(function () {
+					alert($(this).val());
+				});
+
+				//id가 btn3인 대상을 선택해서, 이벤트 적용
+				// : 자신의 value를 <span id="resultView"> 영역에 출력
+				$("#btn3").click(function () {
+					//alert($(this).val());
+					//$("#resultView").text($(this).val());
+
+					//innerHTML 형식으로 html tag 적용 : html()
+					$("#resultView").html(
+						"<font color=blue>" + $(this).val() + "</font>"
+					);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="mainDiv">
+			<button id="firstButton">첫 번째 버튼</button>
+		</div>
+		<div class="container">
+			<br /><br />
+			<input type="button" value="Test 1: 이벤트 적용 X" /><br /><br />
+			<input
+				type="button"
+				value="Test 2: 값(value) 출력"
+				id="btn2"
+			/><br /><br />
+			<input type="button" value="Test 3: 값(value)를 span에 출력" id="btn3" />
+			:
+
+			<span id="resultView">span 영역</span>
+		</div>
+	</body>
+</html>
